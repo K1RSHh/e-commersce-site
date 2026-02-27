@@ -15,7 +15,7 @@ function Header() {
       <div className="relative">
         <Link to="/">
           <img
-            src="/public/Logo.svg"
+            src="Logo.svg"
             alt="Logo"
             className="w-33 h-12 hover:scale-110 transition-all"
           />
