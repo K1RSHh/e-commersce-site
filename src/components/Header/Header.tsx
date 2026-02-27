@@ -8,8 +8,11 @@ import {
 import { Link } from "react-router";
 // eslint-disable-next-line
 import { motion } from "framer-motion";
+import { useCartStore } from "../SidePanel/useCartStore";
 
 function Header() {
+  const { openCart } = useCartStore();
+
   return (
     <div className="my-6 flex items-center">
       <div className="relative">
@@ -62,9 +65,14 @@ function Header() {
           </motion.div>
         </Link>
         <Link to="/">
-          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <motion.button
+            onClick={openCart}
+            className="cursor-pointer"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
             <ShoppingCart />
-          </motion.div>
+          </motion.button>
         </Link>
       </div>
     </div>
