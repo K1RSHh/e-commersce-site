@@ -35,9 +35,6 @@ export const PopularAccessories = () => {
             alt="Promo"
             className="absolute inset-0 w-full h-full object-cover opacity-80"
           />
-          <h3 className="relative z-10 text-white text-2xl font-bold">
-            Catch the <br /> best sound
-          </h3>
         </div>
 
         {topThreeAccessories.map((product) => (
