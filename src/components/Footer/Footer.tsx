@@ -1,7 +1,7 @@
 function Footer() {
   return (
-    <div className="mx-auto">
-      <div className="flex gap-5 h-75 items-center">
+    <footer className="flex flex-col">
+      <div className="relative flex flex-col md:flex-row gap-5 items-center">
         <div className="flex flex-col w-75 text-start">
           <p className="font-bold text-3xl mb-3">Welcome</p>
           <p>
@@ -12,7 +12,7 @@ function Footer() {
         <div className="flex flex-col w-75 text-start">
           <p className="font-bold text-3xl mb-3">Useful Links</p>
           <ul className="list-disc px-9">
-            <li className="cursor-pointer">FAQ</li>
+            <li className="cursor-pointer hover:underline">FAQ</li>
             <li className="cursor-pointer hover:underline">Blogs</li>
             <li className="cursor-pointer hover:underline">Privacy Policy</li>
             <li className="cursor-pointer hover:underline">Terms</li>
@@ -35,8 +35,10 @@ function Footer() {
           </p>
         </div>
       </div>
-      <p className="my-6">© 2025 All rights reserved. Powered by Vayu</p>
-    </div>
+      <div className="mt-14 mb-2">
+        <p>© 2025 All rights reserved. Powered by Vayu</p>
+      </div>
+    </footer>
   );
 }
 

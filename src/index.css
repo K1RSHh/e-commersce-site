@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
@@ -13,10 +19,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  max-width: 1250px;
+body,
+html {
   min-height: 100vh;
   margin: 0 auto;
-  display: flex;
+  padding: 0;
   flex-direction: column;
 }

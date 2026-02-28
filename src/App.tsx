@@ -8,7 +8,7 @@ import { CartDrawer } from "./components/SidePanel/CartDrawer";
 function App() {
   return (
     <div>
-      <div className="min-h-screen w-full flex flex-col justify-between">
+      <div className="min-h-screen w-full flex flex-col overflow-x-hidden p-1 justify-between m-auto md:w-312.5">
         <Header />
         <div className="m-auto">
           <Routes>
