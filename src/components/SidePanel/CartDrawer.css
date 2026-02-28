@@ -7,10 +7,15 @@
   background-color: #e4e4e4;
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-
   transform: translateX(100%);
-
   transition: transform 0.3s ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
 }
 
 @media (min-width: 768px) {

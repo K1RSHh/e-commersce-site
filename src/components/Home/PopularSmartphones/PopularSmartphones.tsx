@@ -3,12 +3,12 @@ import { useProductStore } from "../../../data/useProductStore";
 import { motion } from "framer-motion";
 import { useCartStore } from "../../../store/useCartStore";
 
-export const PopularAccessories = () => {
+export const PopularSmartphones = () => {
   const { products, isLoading } = useProductStore();
   const addItems = useCartStore((state) => state.addItem);
 
   const topThreeAccessories = products
-    .filter((product) => product.category === "mobile-accessories")
+    .filter((product) => product.category === "smartphones")
     .sort((a, b) => b.rating - a.rating)
     .slice(0, 3);
 
@@ -23,14 +23,6 @@ export const PopularAccessories = () => {
   return (
     <section className="max-w-312.5 mx-auto px-4 my-12">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-[#0f172a] rounded-xl p-6 relative overflow-hidden min-h-87.5 flex items-end">
-          <img
-            src="/home/girl-img.jpeg"
-            alt="Promo"
-            className="absolute inset-0 w-full h-full object-cover opacity-80"
-          />
-        </div>
-
         {topThreeAccessories.map((product) => (
           <div
             key={product.id}
@@ -66,6 +58,13 @@ export const PopularAccessories = () => {
             </div>
           </div>
         ))}
+        <div className="bg-[#0f172a] rounded-xl p-6 relative overflow-hidden min-h-87.5 flex items-end">
+          <img
+            src="/home/BestSmartphones.jpg"
+            alt="Promo"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
       </div>
     </section>
   );

@@ -4,10 +4,12 @@ import { Link } from "react-router";
 import { motion } from "framer-motion";
 import { ToggleButton } from "../SidePanel/ToggleButton";
 import { useState, MouseEventHandler } from "react";
+import { useCartStore } from "../../store/useCartStore";
 
 function Header() {
   const { openCart } = ToggleButton();
   const [isOpen, setIsOpen] = useState(false);
+  const items = useCartStore((state) => state.items);
 
   return (
     <header className="my-6 flex flex-wrap md:flex-nowrap items-center">
@@ -70,13 +72,20 @@ function Header() {
             <UserRound />
           </motion.div>
         </Link>
-        <Link to="/">
+        <Link to="/" className="relative">
           <motion.button
             onClick={openCart}
             className="cursor-pointer"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
+            {items.length > 0 ? (
+              <p className="absolute bottom-6 text-center right-0 bg-black text-white text-sm w-5 rounded-4xl">
+                {items.length}
+              </p>
+            ) : (
+              ""
+            )}
             <ShoppingCart />
           </motion.button>
         </Link>
@@ -95,6 +104,23 @@ function Header() {
           <Search color="#fff" />
         </motion.button>
       </div>
+      <Link to="/" className="fixed bottom-12 right-5 md:right-15 z-50 ">
+        <motion.button
+          onClick={openCart}
+          className="cursor-pointer bg-white/50 bg-blur-md shadow-2xl p-4 rounded-2xl"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          {items.length > 0 ? (
+            <p className="absolute bottom-9 text-center right-0 bg-black text-white text-sm w-5 rounded-4xl">
+              {items.length}
+            </p>
+          ) : (
+            ""
+          )}
+          <ShoppingCart />
+        </motion.button>
+      </Link>
     </header>
   );
 }
