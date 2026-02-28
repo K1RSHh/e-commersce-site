@@ -2,11 +2,11 @@ import { Search, ShoppingCart, UserRound, Menu } from "lucide-react";
 import { Link } from "react-router";
 // eslint-disable-next-line
 import { motion } from "framer-motion";
-import { useCartStore } from "../SidePanel/useCartStore";
+import { ToggleButton } from "../SidePanel/ToggleButton";
 import { useState, MouseEventHandler } from "react";
 
 function Header() {
-  const { openCart } = useCartStore();
+  const { openCart } = ToggleButton();
   const [isOpen, setIsOpen] = useState(false);
 
   return (

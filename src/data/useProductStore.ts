@@ -1,31 +1,24 @@
 import { create } from "zustand";
-
-export interface Product {
-  id: number;
-  title: string;
-  price: number;
-  thumbnail: string;
-  category: string;
-}
+import { Product, DummyJsonResponse } from "../types/product";
 
 interface ProductStore {
-  product: Product[];
+  products: Product[];
   isLoading: boolean;
   error: string | null;
-  fetchProduct: () => Promise<void>;
+  fetchProducts: () => Promise<void>;
 }
 
 export const useProductStore = create<ProductStore>((set) => ({
-  product: [],
+  products: [],
   isLoading: false,
   error: null,
 
-  fetchProduct: async () => {
+  fetchProducts: async () => {
     set({ isLoading: true, error: null });
 
     try {
       const [smartphonesRes, accessoriesRes] = await Promise.all([
-        fetch("'https://dummyjson.com/products/category/smartphones'"),
+        fetch("https://dummyjson.com/products/category/smartphones"),
         fetch("https://dummyjson.com/products/category/mobile-accessories"),
       ]);
 
@@ -36,9 +29,12 @@ export const useProductStore = create<ProductStore>((set) => ({
       const smartphonesData = await smartphonesRes.json();
       const accessoriesData = await accessoriesRes.json();
 
-      const combinedProduct = [...smartphonesData, ...accessoriesData];
+      const combinedProduct = [
+        ...smartphonesData.products,
+        ...accessoriesData.products,
+      ];
 
-      set({ product: combinedProduct, isLoading: false });
+      set({ products: combinedProduct, isLoading: false });
     } catch (error: any) {
       set({ error: error.message || "Something went wrong", isLoading: false });
     }

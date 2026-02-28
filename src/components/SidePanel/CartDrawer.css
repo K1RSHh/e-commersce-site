@@ -2,32 +2,33 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 400px; /* Ширина твоєї виїжджаючої панелі */
-  height: 100vh; /* На всю висоту екрана */
-  background-color: #ffffff;
+  width: 100%;
+  height: 100vh;
+  background-color: #e4e4e4;
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-  z-index: 1000; /* Щоб перекривати хедер і товари */
+  z-index: 1000;
 
-  /* ОСЬ ЦЕЙ РЯДОК ХОВАЄ ПАНЕЛЬ */
   transform: translateX(100%);
 
-  /* Плавна анімація виїзду */
   transition: transform 0.3s ease-in-out;
 }
 
-/* 2. Коли Zustand додає клас 'open' */
+@media (min-width: 768px) {
+  .cart-drawer {
+    width: 400px;
+  }
+}
+
 .cart-drawer.open {
-  /* Повертаємо панель у видиму зону */
   transform: translateX(0);
 }
 
-/* 3. Темний фон позаду кошика */
 .cart-backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* Напівпрозорий чорний */
-  z-index: 999; /* Нижче за кошик (1000), але вище за сайт */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
