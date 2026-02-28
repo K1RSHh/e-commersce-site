@@ -12,7 +12,9 @@ function BestSeller() {
       >
         <p className="text-xl mb-2">Best Seller</p>
         <p className="text-4xl mb-2">Camera</p>
-        <button className="bg-white p-3 text-black rounded-md">Button</button>
+        <button className="bg-white p-3 text-black rounded-md cursor-pointer">
+          Button
+        </button>
       </div>
       <div
         className="col-span-2 bg-cover bg-center rounded-2xl p-6 text-white text-left"
@@ -20,7 +22,9 @@ function BestSeller() {
       >
         <p className="text-xl mb-2">Best Seller</p>
         <p className="text-4xl mb-2">Headphones</p>
-        <button className="bg-white p-3 text-black rounded-md">Button</button>
+        <button className="bg-white p-3 text-black rounded-md cursor-pointer">
+          Button
+        </button>
       </div>
     </div>
   );

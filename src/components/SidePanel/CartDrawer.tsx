@@ -16,12 +16,9 @@ export const CartDrawer = () => {
   return (
     <section className="relative">
       {isCartOpen && <div className="cart-backdrop" onClick={closeCart} />}
-
-      {/* 1. Додаємо flex flex-col та h-full, щоб контейнер керував висотою внутрішніх блоків */}
       <div
         className={`cart-drawer ${isCartOpen ? "open" : ""} flex flex-col h-full`}
       >
-        {/* ЗАГОЛОВОК */}
         <div className="flex justify-center w-full bg-white  shrink-0">
           <h2 className="font-bold text-xl flex gap-1 my-4">
             <ShoppingCart />
@@ -35,7 +32,6 @@ export const CartDrawer = () => {
           </button>
         </div>
 
-        {/* 2. СПИСОК (flex-1 змушує його займати весь вільний простір) */}
         <div className="flex-1 overflow-y-auto custom-scrollbar p-2">
           {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center">
