@@ -5,11 +5,11 @@ import Home from "./page/Home";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { CartDrawer } from "./components/SidePanel/CartDrawer";
-import { useProductStore } from "./data/useProductStore";
+import { useProductStore } from "./store/useProductStore";
 import Shop from "./page/Shop";
 import ProductDetails from "./components/Shop/ProductDetails";
-import { Cart } from "./components/Cart/Cart";
-import { Checkout } from "./components/Checkout/Checkout";
+import { Cart } from "./page/Cart";
+import { Checkout } from "./page/Checkout";
 
 function App() {
   const fetchProducts = useProductStore((state) => state.fetchProducts);

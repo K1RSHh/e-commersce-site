@@ -1,4 +1,4 @@
-import { useProductStore } from "../../../data/useProductStore";
+import { useProductStore } from "../../../store/useProductStore";
 // eslint-disable-next-line
 import { motion } from "framer-motion";
 import { useCartStore } from "../../../store/useCartStore";

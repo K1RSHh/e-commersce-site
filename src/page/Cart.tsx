@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useCartStore } from "../../store/useCartStore";
+import { useCartStore } from "../store/useCartStore";
 import { Trash, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router";

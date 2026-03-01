@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useProductStore } from "../data/useProductStore";
+import { useProductStore } from "../store/useProductStore";
 import ProductCard from "../components/Shop/ProductCard";
 
 export default function Shop() {

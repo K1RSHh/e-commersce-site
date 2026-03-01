@@ -1,4 +1,4 @@
-import { useCartStore } from "../../store/useCartStore";
+import { useCartStore } from "../store/useCartStore";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router";
 import { motion } from "framer-motion";

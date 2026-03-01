@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router";
 // eslint-disable-next-line
 import { motion } from "framer-motion";
 import { useCartStore } from "../../store/useCartStore";
-import { useProductStore } from "../../data/useProductStore";
+import { useProductStore } from "../../store/useProductStore";
 import ProductCard from "./ProductCard";
 
 export default function ProductDetails() {
