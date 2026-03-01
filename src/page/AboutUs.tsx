@@ -1,13 +1,14 @@
 function AboutUs() {
   return (
     <div>
-      <div className="relative w-312.5 h-100 bg-no-repeat bg-cover bg-center rounded-3xl bg-[url('/AboutUs/Banner-5.png')]">
-        <p className="w-full h-full flex text-white text-6xl font-bold justify-center items-center">
-          ABOUT US
-        </p>
+      <div className="relative max-w-312.5 h-100 bg-no-repeat bg-cover bg-center rounded-3xl bg-[url('/AboutUs/Banner-5.png')]">
+        <div className="w-full h-full flex flex-col justify-center items-center">
+          <p className="flex text-white text-3xl font-bold">Who we are</p>
+          <p className="flex text-white text-6xl font-bold">ABOUT US</p>
+        </div>
       </div>
-      <div className="w-2/2 flex justify-between mt-13">
-        <div className="w-1/2 flex flex-col text-left justify-center gap-5">
+      <div className="w-2/2 order-1 grid md:flex justify-between mt-13">
+        <div className="md:w-1/2 flex flex-col md:text-left justify-center gap-5">
           <p className="text-stone-500">Pellesque volutpat</p>
           <p className="font-bold text-3xl">ABOUT FOUNDER</p>
           <p>
@@ -21,7 +22,7 @@ function AboutUs() {
             Aenean a sem tincidunt, semper ex et, porta est.
           </p>
         </div>
-        <div className="w-156.5 h-112.5 rounded-3xl bg-center bg-cover bg-[url('/AboutUs/pexels-photo-12599059.jpeg')]"></div>
+        <div className="order-1 max-w-156 md:w-156 h-112 rounded-3xl bg-center bg-cover bg-[url('/AboutUs/pexels-photo-12599059.jpeg')]"></div>
       </div>
       <div className="mt-13 text-left flex flex-col gap-5 mb-20">
         <div>
