@@ -4,6 +4,7 @@ import "./CartDrawer.css";
 import { useCartStore } from "../../store/useCartStore";
 // eslint-disable-next-line
 import { motion } from "framer-motion";
+import { Link } from "react-router";
 
 export const CartDrawer = () => {
   const { isCartOpen, closeCart } = ToggleButton();
@@ -94,18 +95,31 @@ export const CartDrawer = () => {
           )}
         </div>
         {items.length > 0 && (
-          <div className="p-4  bg-white shrink-0">
+          <div className="p-4 bg-white shrink-0">
             <div className="flex justify-between items-center mb-4">
               <p className="font-bold text-xl">Sub Total:</p>
               <p className="font-bold text-xl">${totalPrice().toFixed(2)}</p>
             </div>
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="bg-black text-white w-full py-4 rounded-md cursor-pointer font-bold"
-            >
-              Checkout
-            </motion.button>
+            <div className="flex gap-5 w-2/2">
+              <Link to="/cart" className="w-1/2">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-white text-black border border-black w-full py-4 rounded-md cursor-pointer font-bold"
+                >
+                  View cart
+                </motion.button>
+              </Link>
+              <Link to="/checkout" className="w-1/2">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-black text-white border w-full py-4 rounded-md cursor-pointer font-bold"
+                >
+                  Checkout
+                </motion.button>
+              </Link>
+            </div>
           </div>
         )}
       </div>
