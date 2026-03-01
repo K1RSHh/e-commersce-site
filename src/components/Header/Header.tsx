@@ -37,7 +37,7 @@ function Header() {
             </button>
             <div className="mt-10 mr-3 text-xl flex flex-col gap-3">
               <Link to="/">Home</Link>
-              <Link to="/">Shop</Link>
+              <Link to="/shop">Shop</Link>
               <Link to="/">About Us</Link>
               <Link to="/">Contact Us</Link>
             </div>
@@ -51,7 +51,7 @@ function Header() {
               Home
             </motion.div>
           </Link>
-          <Link to="/">
+          <Link to="/shop">
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               Shop
             </motion.div>
@@ -72,7 +72,7 @@ function Header() {
             <UserRound />
           </motion.div>
         </Link>
-        <Link to="/" className="relative">
+        <div className="relative">
           <motion.button
             onClick={openCart}
             className="cursor-pointer"
@@ -88,7 +88,7 @@ function Header() {
             )}
             <ShoppingCart />
           </motion.button>
-        </Link>
+        </div>
       </div>
       <div className="flex order-3 md:order-2 justify-between md:ml-6 mt-5 md:mt-0 border-blue-400 border h-11 w-md rounded-md items-center">
         <input
@@ -104,7 +104,7 @@ function Header() {
           <Search color="#fff" />
         </motion.button>
       </div>
-      <Link to="/" className="fixed bottom-12 right-5 md:right-15 z-50 ">
+      <div className="fixed bottom-12 right-5 md:right-15 z-50 ">
         <motion.button
           onClick={openCart}
           className="cursor-pointer bg-white/50 bg-blur-md shadow-2xl p-4 rounded-2xl"
@@ -120,7 +120,7 @@ function Header() {
           )}
           <ShoppingCart />
         </motion.button>
-      </Link>
+      </div>
     </header>
   );
 }

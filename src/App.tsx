@@ -6,6 +6,8 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { CartDrawer } from "./components/SidePanel/CartDrawer";
 import { useProductStore } from "./data/useProductStore";
+import Shop from "./page/Shop";
+import ProductDetails from "./components/Shop/ProductDetails";
 
 function App() {
   const fetchProducts = useProductStore((state) => state.fetchProducts);
@@ -21,6 +23,8 @@ function App() {
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
           </Routes>
         </div>
         <Footer />
