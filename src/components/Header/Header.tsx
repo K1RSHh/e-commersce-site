@@ -38,7 +38,7 @@ function Header() {
             <div className="mt-10 mr-3 text-xl flex flex-col gap-3">
               <Link to="/">Home</Link>
               <Link to="/shop">Shop</Link>
-              <Link to="/">About Us</Link>
+              <Link to="/about-us">About Us</Link>
               <Link to="/">Contact Us</Link>
             </div>
           </div>
@@ -56,7 +56,7 @@ function Header() {
               Shop
             </motion.div>
           </Link>
-          <Link to="/">
+          <Link to="/about-us">
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               About Us
             </motion.div>
