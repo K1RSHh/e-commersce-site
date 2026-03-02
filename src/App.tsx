@@ -11,6 +11,7 @@ import ProductDetails from "./components/Shop/ProductDetails";
 import { Cart } from "./page/Cart";
 import { Checkout } from "./page/Checkout";
 import AboutUs from "./page/AboutUs";
+import ContactUS from "./page/ContactUs";
 
 function App() {
   const fetchProducts = useProductStore((state) => state.fetchProducts);
@@ -31,6 +32,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/contact-us" element={<ContactUS />} />
           </Routes>
         </div>
         <Footer />

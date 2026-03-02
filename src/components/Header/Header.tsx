@@ -39,7 +39,7 @@ function Header() {
               <Link to="/">Home</Link>
               <Link to="/shop">Shop</Link>
               <Link to="/about-us">About Us</Link>
-              <Link to="/">Contact Us</Link>
+              <Link to="/contact-us">Contact Us</Link>
             </div>
           </div>
         ) : (
@@ -61,7 +61,7 @@ function Header() {
               About Us
             </motion.div>
           </Link>
-          <Link to="/">
+          <Link to="/contact-us">
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               Contact Us
             </motion.div>
