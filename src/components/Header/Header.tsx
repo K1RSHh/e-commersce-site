@@ -67,7 +67,7 @@ function Header() {
             </motion.div>
           </Link>
         </div>
-        <Link to="/">
+        <Link to="/sign-up">
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <UserRound />
           </motion.div>

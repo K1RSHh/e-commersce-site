@@ -47,7 +47,7 @@ const ContactForm: React.FC = () => {
             required
           />
           <input
-            type="tel"
+            type="number"
             placeholder="Contact number"
             className="w-full border border-gray-300 p-3 outline-none focus:border-black transition-colors"
             onChange={(e) =>

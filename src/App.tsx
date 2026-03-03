@@ -12,6 +12,7 @@ import { Cart } from "./page/Cart";
 import { Checkout } from "./page/Checkout";
 import AboutUs from "./page/AboutUs";
 import ContactUS from "./page/ContactUs";
+import SignUp from "./page/SignUp";
 
 function App() {
   const fetchProducts = useProductStore((state) => state.fetchProducts);
@@ -33,6 +34,7 @@ function App() {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact-us" element={<ContactUS />} />
+            <Route path="/sign-up" element={<SignUp />} />
           </Routes>
         </div>
         <Footer />
