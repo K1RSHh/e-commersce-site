@@ -1,15 +1,24 @@
 import { Search, ShoppingCart, UserRound, Menu } from "lucide-react";
 import { Link } from "react-router";
-// eslint-disable-next-line
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ToggleButton } from "../SidePanel/ToggleButton";
 import { useState, MouseEventHandler } from "react";
 import { useCartStore } from "../../store/useCartStore";
+import { useMemo } from "react";
+import { Product } from "../../types/product";
 
-function Header() {
+function Header({ products = [] }: { products?: Product[] }) {
+  const [searchTerm, setSearchTerm] = useState("");
+  const items = useCartStore((state) => state.items);
   const { openCart } = ToggleButton();
   const [isOpen, setIsOpen] = useState(false);
-  const items = useCartStore((state) => state.items);
+
+  const filteredProducts = useMemo(() => {
+    if (!searchTerm.trim()) return [];
+    return products
+      .filter((p) => p.title.toLowerCase().includes(searchTerm.toLowerCase()))
+      .slice(0, 5);
+  }, [searchTerm, products]);
 
   return (
     <header className="my-6 flex flex-wrap md:flex-nowrap items-center">
@@ -90,19 +99,61 @@ function Header() {
           </motion.button>
         </div>
       </div>
-      <div className="flex order-3 md:order-2 justify-between md:ml-6 mt-5 md:mt-0 border-blue-400 border h-11 w-md rounded-md items-center">
+      <div className="relative flex order-3 md:order-2 justify-between md:ml-6 mt-5 md:mt-0 border-blue-400 border h-11 w-full md:w-md rounded-md items-center bg-white">
         <input
           type="text"
           placeholder="Search..."
-          className="outline-none px-2 text-xl relative w-full"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="outline-none px-4 text-lg w-full bg-transparent"
         />
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="bg-black px-4 py-1 rounded-md mr-1.5 cursor-pointer"
+          className="bg-black px-4 py-2 mr-1 rounded-md flex items-center cursor-pointer"
         >
-          <Search color="#fff" />
+          <Search color="#fff" size={20} />
         </motion.button>
+
+        <AnimatePresence>
+          {searchTerm && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="absolute top-12 left-0 w-full bg-white shadow-2xl rounded-md overflow-hidden z-50 border border-gray-100"
+            >
+              {filteredProducts.length > 0 ? (
+                filteredProducts.map((product) => (
+                  <Link
+                    to={`/product/${product.id}`}
+                    key={product.id}
+                    onClick={() => setSearchTerm("")}
+                    className="flex items-center gap-4 p-3 hover:bg-blue-50 transition-colors border-b border-gray-50 last:border-0"
+                  >
+                    <img
+                      src={product.images[0]}
+                      alt=""
+                      className="w-10 h-10 object-cover rounded"
+                    />
+                    <div className="flex justify-between w-2/2">
+                      <p className="text-sm font-bold text-black line-clamp-1">
+                        {product.title}
+                      </p>
+                      <p className="text-md text-blue-500 font-bold">
+                        ${product.price}
+                      </p>
+                    </div>
+                  </Link>
+                ))
+              ) : (
+                <div className="p-4 text-center text-gray-400 text-sm">
+                  No products found
+                </div>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
       <div className="fixed bottom-12 right-5 md:right-15 z-50 ">
         <motion.button

@@ -21,10 +21,12 @@ function App() {
     fetchProducts();
   }, [fetchProducts]);
 
+  const product = useProductStore((state) => state.products);
+
   return (
     <div>
       <div className="min-h-screen w-full flex flex-col overflow-x-hidden p-1 justify-between m-auto md:w-312.5">
-        <Header />
+        <Header products={product} />
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
